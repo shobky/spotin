@@ -17,7 +17,7 @@ const Login = () => {
     };
 
     const sendRequest = async () => {
-        const res = await axios.post('http://localhost:5000/api/login', {
+        const res = await axios.post('http://localhost:5000/api/users/login', {
             email: fields.email,
             password: fields.password,
         }).catch(err => console.log(err))

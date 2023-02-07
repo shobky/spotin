@@ -1,6 +1,10 @@
 const User = require("../model/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
+
+//signup
+
 const signup = async (req, res, next) => {
   const { name, email, password } = req.body;
   let existingUser;
@@ -29,6 +33,9 @@ const signup = async (req, res, next) => {
   return res.status(201).json({ message: user });
 };
 
+
+//login
+
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -55,6 +62,8 @@ const login = async (req, res, next) => {
     req.cookies[`${existingUser._id}`] = "";
   }
 
+  // adding special characters before the ( = ) and after the actual token, to be able to get it easily, 
+  // in case of multiple cookies.
   res.cookie(String(`${existingUser._id}<<%.P`), token + "DllpK", {
     path: "/",
     expires: new Date(Date.now() + 1000 * 60 * 60 * 12), // 12 hours
@@ -67,8 +76,14 @@ const login = async (req, res, next) => {
     .json({ message: "Successfully Logged In", user: existingUser, token });
 };
 
+
+//verify token
+
 const verifyToken = (req, res, next) => {
   const cookies = req.headers.cookie;
+
+  // getting the token by defining the same special charachter from above 
+  // + adding the ( = ) sign which is added after the cookie id
   const token = cookies?.split('<<%.P=').pop().split('DllpK')[0];
   if (!token) {
     res.status(404).json({ message: "No token found" });
@@ -83,6 +98,9 @@ const verifyToken = (req, res, next) => {
   next();
 };
 
+
+// get user data 
+
 const getUser = async (req, res, next) => {
   const userId = req.id;
   let user;
@@ -90,7 +108,7 @@ const getUser = async (req, res, next) => {
     user = await User.findById(userId, "-password");
   } catch (err) {
     return new Error(err);
-  } 
+  }
   if (!user) {
     return res.status(404).json({ messsage: "User Not FOund" });
   }
@@ -119,3 +137,5 @@ exports.signup = signup;
 exports.login = login;
 exports.verifyToken = verifyToken;
 exports.getUser = getUser;
+
+

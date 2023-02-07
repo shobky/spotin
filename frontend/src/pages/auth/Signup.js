@@ -18,7 +18,7 @@ const Signup = () => {
     };
 
     const sendRequest = async () => {
-        const res = await axios.post('http://localhost:5000/api/signup', {
+        const res = await axios.post('http://localhost:5000/api/users/signup', {
             name: fields.name,
             email: fields.email,
             password: fields.password,

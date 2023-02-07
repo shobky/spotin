@@ -1,16 +1,30 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("./routes/user.routes");
+const userRouter = require("./routes/user.routes");
+const itemRouter = require("./routes/item.routes");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const orderRouter = require("./routes/order.routes");
+
 require("dotenv").config();
+
 const app = express();
-app.use(cors({ credentials: true, origin: "https://spotin-xi.vercel.app/" }));
+
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
 app.use(cookieParser());
 app.use(express.json());
-app.use("/api", router);
- 
-mongoose 
+
+// routes
+app.use("/api/users", userRouter);
+app.use("/api/items", itemRouter);
+app.use("/api/orders", orderRouter);
+
+
+
+
+// connecting to the mongo database and starting the node server
+mongoose
   .connect(
     `mongodb+srv://shobky:${process.env.MONGODB_PASSWORORD}@cluster0.nfwqewl.mongodb.net/?retryWrites=true&w=majority`
   )
