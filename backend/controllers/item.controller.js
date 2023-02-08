@@ -16,12 +16,13 @@ const getItems = async (req, res) => {
 
 // add
 const addItem = async (req, res) => {
-    const { name, image, price, category } = req.body
+    const { name, image, price, category, vital } = req.body
     const item = new Item({
         name,
         image,
         price,
-        category
+        category,
+        vital
     })
 
     try {
@@ -36,7 +37,7 @@ const addItem = async (req, res) => {
 // update
 
 const updateItem = async (req, res) => {
-    const { name, image, price, category, id } = req.body
+    const { name, image, price, category,vital, id } = req.body
 
     try {
         await Item.findById(id, (error, foundItem) => {
@@ -44,6 +45,7 @@ const updateItem = async (req, res) => {
             foundItem.image = image;
             foundItem.price = price;
             foundItem.category = category;
+            foundItem.vital = vital;
             foundItem.save()
         })
     } catch (err) {

@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 //signup
 
 const signup = async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, email, phoneNumber, password, gender } = req.body;
   let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
@@ -16,13 +16,15 @@ const signup = async (req, res, next) => {
   if (existingUser) {
     return res
       .status(400)
-      .json({ message: "User already exists! Login Instead" });
+      .json("User already exists! Login Instead");
   }
   const hashedPassword = bcrypt.hashSync(password);
   const user = new User({
     name,
     email,
+    phoneNumber,
     password: hashedPassword,
+    gender,
   });
 
   try {
@@ -46,11 +48,11 @@ const login = async (req, res, next) => {
     return new Error(err);
   }
   if (!existingUser) {
-    return res.status(400).json({ message: "User not found. Signup Please" });
+    return res.status(400).json("You don't have an account, Signup please");
   }
   const isPasswordCorrect = bcrypt.compareSync(password, existingUser.password);
   if (!isPasswordCorrect) {
-    return res.status(400).json({ message: "Inavlid Email / Password" });
+    return res.status(400).json("Wrong email or password");
   }
   const token = jwt.sign({ id: existingUser._id }, 'secret123', {
     expiresIn: "12h",

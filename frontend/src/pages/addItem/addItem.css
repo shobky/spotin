@@ -1,0 +1,13 @@
+.add-item{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+.add-item input{
+    width: 200px;
+    padding: 5px;
+}

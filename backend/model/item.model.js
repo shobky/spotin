@@ -10,6 +10,7 @@ const itemSchema = new Schema({
     },
     image: {
         type: String,
+        data: Buffer,
         required: true,
     },
     price: {
