@@ -47,7 +47,7 @@ $ npm start
 // will start on port 3000 by default
 ```
 
-##usage
+## usage
 Final steps is to create a new file in the backend folder root directory should be just on top of app.js file
 then you will add 
 1- your mongodb first user password
