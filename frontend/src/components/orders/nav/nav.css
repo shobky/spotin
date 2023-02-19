@@ -1,0 +1,58 @@
+.orders_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10vw;
+    background-color: #ed7b11f1;
+    color: white;
+    box-sizing: border-box;
+}
+.orders_nav_link-search{
+    display: flex;
+    gap: 5vw;
+}
+.orders_nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: white;
+}
+
+.orders_cashier_nav-link {
+    color: rgba(236, 234, 234, 0.944);
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.orders_cashier_nav-link:hover {
+    color: white;
+    opacity: 1;
+}
+
+
+.orders_nav_logo-search {
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+}
+
+.orders_search-input {
+    width: 15vw;
+    min-width: 150px;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.993);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50px 50px 50px 0px;
+    font-family: monReg;
+}
+
+.orders_search-input:focus {
+    outline: none;
+}
+
+.orders_search-input::placeholder {
+    color: rgb(29, 28, 28);
+    opacity: .5;
+}

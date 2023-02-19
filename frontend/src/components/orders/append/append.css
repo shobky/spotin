@@ -1,0 +1,12 @@
+.bill_append-button {
+    position: absolute;
+    right: 50px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    top: 35px;
+}
+.bill_append-button:hover {
+    color: rgb(222, 152, 13);
+    cursor: pointer;
+}

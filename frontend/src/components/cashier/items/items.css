@@ -1,7 +1,6 @@
 .cashier-items {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
 }
 
 .cashier-item-container,
@@ -22,7 +21,7 @@
 }
 
 .cashier-item-container {
-    background-color: #eb7b11;
+    background-color: #d87314f1;
     border-radius: 15px;
     display: flex;
     justify-content: center;

@@ -6,9 +6,9 @@ const Items = ({ items }) => {
     return (
     <div className='cashier-items'>
         {
-            items?.map((item) => (
+            items?.map((item, index) => (
                 <Item
-                    item={item} key={item.id}
+                    item={item} key={item._id} index={index}
                 />
             ))
         }

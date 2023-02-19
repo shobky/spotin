@@ -5,10 +5,14 @@ const Schema = mongoose.Schema;
 const orderSchema = new Schema({
 
     customerName: { type: String, required: true },
-    cart: { type: Array, required: true },
-    cartTotal: { type: Number, required: true },
+    cart: { type: Array, },
+    cartTotal: { type: Number, },
     checkedIn: { type: Boolean, default: false },
-    subTotal: { type: Number, required: true }
+    tickets: { type: Number, },
+    ticketsPrice: { type: Number, },
+    subTotal: { type: Number, required: true },
+    status: { type: String },
+    timeSpent: { type: Array }
 }, {
     timestamps: true
 });

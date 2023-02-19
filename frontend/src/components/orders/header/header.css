@@ -1,0 +1,72 @@
+.orders_header {
+    font-family: monReg;
+    display: flex;
+    justify-content: center;
+    gap: 2.5vw;
+    align-items: center;
+    border-bottom: 1px solid rgba(179, 179, 179, 0.288);
+    padding: 10px 10px;
+}
+
+.orders_header-btn {
+    border: none;
+    background-color: transparent;
+    margin: 25px;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.orders_header_btn-ico {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 12px;
+    color: white;
+}
+
+.orders_header-btn p span {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+}
+
+.orders_header-btn p {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(95, 95, 95, 0.735);
+    display: flex;
+    flex-direction: column;
+}
+
+.ohb_open {
+    background-color: rgb(55, 171, 96);
+}
+
+.ohb_closed {
+    background-color: rgb(238, 154, 8);
+}
+
+.ohb_button:hover .ohb_closed {
+    background-color: rgb(227, 144, 0);
+
+}
+
+.ohb_button:hover .ohb_open {
+    background-color: rgb(7, 202, 75);
+
+}
+
+.ohb_orders {
+    background-color: rgb(50, 175, 248);
+
+}
+
+.ohb_balance {
+    background-color: rgb(8, 215, 149);
+
+}
+
+.ohb_tickts {
+    background-color: rgb(237, 203, 10);
+}

@@ -24,7 +24,7 @@ const signup = async (req, res, next) => {
     email,
     phoneNumber,
     password: hashedPassword,
-    gender,
+    gender, 
   });
 
   try {

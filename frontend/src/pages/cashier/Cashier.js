@@ -1,41 +1,46 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Items from '../../components/cashier/items/Items'
-import { useCart } from '../../contexts/CartContext'
+import Nav from '../../components/cashier/nav/Nav'
 import './cashier.css'
+import Cover from '../../components/cover/Cover'
+import Spinner from '../../components/loading/Spinner'
+import UseFetch from '../../hooks/UseFetch'
+import Checkout from '../../components/cashier/checkout/Checkout'
+import { ImPlus } from 'react-icons/im'
+import { useItems } from '../../contexts/ItemsContext'
 
 const Cashier = () => {
 
-    const [items, setItems] = useState([])
-    items.sort((a, b) => a.vital - b.vital);
-
-    const { cartTotal,
-        itemCount,
-        uniqueItemCount } = useCart()
+    const [checkout, setCheckout] = useState(false)
+    const { items, loading } = useItems()
 
 
-
-    const getItems = async () => {
-        const res = await axios
-            .get("http://localhost:5000/api/items/get")
-            .catch((err) => console.log(err))
-        const data = await res.data
-        return data
+    const handleCheckoutScreen = () => {
+        setCheckout(!checkout)
     }
 
-    useEffect(() => {
-        getItems().then((data) => {
-            setItems(data.items)
-        })
-    }, [])
-
     return (
-        <div className='cashier'>
-            <p>
-                ${cartTotal} - I{itemCount} - U{uniqueItemCount}
-            </p>
-            <div className='Items-component'>
-                <Items items={items} />
+        <div id="cashier" className='cashier'>
+            <Nav handleCheckoutScreen={handleCheckoutScreen} />
+            <div className='cashier_container'>
+                {
+                    loading ?
+
+                        <div className='cashier_spinner'>
+                            <Spinner  text={'Getting Items'}/>
+                        </div>
+                        :
+
+                        <div className='Items-component'>
+                            {
+                                checkout ?
+                                    <Checkout id="checkoutId" handleCheckoutScreen={handleCheckoutScreen} /> :
+                                    <Items items={items} />
+
+                            }
+                        </div>
+                }
             </div>
         </div>
     )

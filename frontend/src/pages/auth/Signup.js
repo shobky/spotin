@@ -49,7 +49,7 @@ const Signup = () => {
             <form className='auth-form' onSubmit={handleSubmit}>
                 <input required name='name' value={fields.name} onChange={(e) => handleChange(e)} placeholder='name' type="name" />
                 <input required name='email' value={fields.email} onChange={(e) => handleChange(e)} placeholder='email' type="email" />
-                <input required name='phoneNumber' value={fields.phoneNumber} onChange={(e) => handleChange(e)} placeholder='phone number' type="number" />
+                <input required name='phoneNumber' value={fields.phoneNumber} onChange={(e) => handleChange(e)} placeholder='phone number'  />
                 <input required name='gender' value={fields.gender} onChange={(e) => handleChange(e)} placeholder='gender' type="text" />
                 <input required name='password' value={fields.password} onChange={(e) => handleChange(e)} placeholder='password' type="password" />
                 <button className='auth-form_submit-btn' type='submit'>SINGUP</button>
