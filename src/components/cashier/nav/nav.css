@@ -1,0 +1,126 @@
+.cashier_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 14vw 20px 14vw;
+    /* box-shadow: 0 0 10px 1px rgba(156, 154, 154, 0.412); */
+    border-bottom: 1px solid rgba(195, 195, 195, 0.301);
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monReg;
+}
+
+.cashier_nav_buttons {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    gap: 50px;
+
+}
+
+.cashier_nav-cart-ico {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.639);
+    cursor: pointer;
+}
+
+.cashier_nav-cart-ico:hover {
+    color: black;
+}
+
+
+
+.cashier_nav-logout-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f07f16;
+    cursor: pointer;
+    font-family: monReg;
+
+}
+
+.cashier_nav-logout-btn:hover {
+    color: #f07f16;
+    text-decoration: underline;
+}
+
+.cashier_nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    left: 25%;
+}
+
+.cashier_nav-link {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.639);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.cashier_nav-link:hover {
+    color: black;
+}
+
+.cashier_nav-link__ticket {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.639);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cashier_nav-tickit-btn:hover {
+    color: black;
+}
+
+.cashier_nav-ico_active {
+    color: #f07f16;
+}
+
+.cashier_nav-link_badge {
+    font-family: monReg;
+    position: absolute;
+    background-color: #f07f16;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    top: -4px;
+    right: -7.5px;
+    width: 8px;
+    height: 8px;
+}
+
+.cashier_nav-link_total {
+    position: absolute;
+    font-weight: bold;
+    bottom: -17px;
+    font-size: 14px;
+}
+
+.cashier_nav-link_ticket-num {
+    position: absolute;
+    font-weight: bold;
+    bottom: -18px;
+    font-size: 14px;
+    left: 6px;
+}
+
+
+.orderComplete {
+    color: rgb(0, 231, 131) !important;
+    transform: rotate(360deg);
+    transition: 1s ease-in-out;
+}

@@ -1,0 +1,21 @@
+@font-face {
+    font-family: monBlack;
+    src: url('./MontserratAlternates-Black.otf');
+}
+
+@font-face {
+    font-family: monLight;
+    src: url('./MontserratAlternates-Light.otf');
+}
+@font-face {
+    font-family: monReg;
+    src: url('./Montserrat-Regular.otf');
+}
+@font-face {
+    font-family: monBold;
+    src: url('./Montserrat-Bold.otf');
+}
+@font-face {
+    font-family: monExBold;
+    src: url('./Montserrat-ExtraBold.otf');
+}

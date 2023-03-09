@@ -1,0 +1,41 @@
+.orders_nav {
+    background-color: #ed7b11f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 13vw 16px 12vw;
+    border-bottom: 1px solid rgba(195, 195, 195, 0.301);
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monReg;
+    color: white;
+}
+
+.orders_nav-link {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.82);
+}
+.orders_nav-link:hover {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.orders_search-input {
+    width: 15vw;
+    min-width: 150px;
+    font-size: 16px;
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.993);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50px 50px 50px 50px;
+    font-family: monReg;
+}
+
+.orders_search-input:focus {
+    outline: none;
+}
+
+.orders_search-input::placeholder {
+    color: rgb(29, 28, 28);
+    opacity: .5;
+}

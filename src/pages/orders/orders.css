@@ -1,0 +1,75 @@
+.orders-page {
+    height: 100%;
+    font-family: monReg;
+}
+
+.orders {
+    height: 60vh;
+    overflow-y: scroll;
+}
+
+
+
+.orders_container {
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-left: 4.5vw;
+
+
+}
+
+
+.orders_container_head {
+    display: grid;
+    grid-template-columns: 17.8vw 17.8vw 17.8vw;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(132, 132, 132, 0.204);
+    box-sizing: border-box;
+
+}
+
+.orders_container_head p {
+    color: rgba(0, 0, 0, 0.674);
+}
+
+.order {
+    display: grid;
+    grid-template-columns: 17.8vw 17.8vw 17.8vw;
+    padding: 20px 0;
+    border-top: 1px solid rgba(132, 132, 132, 0.204);
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.order:hover {
+    background-color: rgba(255, 157, 0, 0.084);
+}
+
+.order:first-child {
+    border: none;
+}
+
+.order_name {
+    text-transform: uppercase;
+}
+
+
+.order_status {
+    font-weight: bold;
+    color: rgb(8, 231, 60);
+    font-size: 12px;
+}
+
+.orders_selectedOrder {
+    display: grid;
+    grid-template-columns: 17.8vw 17.8vw 17.8vw;
+    padding: 20px 0;
+    border-top: 1px solid rgba(132, 132, 132, 0.204);
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(192, 191, 190, 0.184);
+}

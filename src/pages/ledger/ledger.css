@@ -1,0 +1,123 @@
+.ledger {
+    padding: 5%;
+    font-family: monReg;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-y: scroll;
+
+}
+
+.blob {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    background-color: rgb(255, 153, 10);
+    clip-path: circle(70% at 70% 120%);
+    z-index: -1;
+}
+
+.ledger_back-link {
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.ledger_back-link:hover {
+    color: #ed7b11f1;
+}
+
+.ledger_orders {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.ledger_orders__div {
+    padding: 15px;
+    width: 10vw;
+    height: 17vh;
+    min-height: 130px;
+    min-width: 130px;
+    border-radius: 15px;
+    border: 1px solid rgba(61, 61, 61, 0.194);
+
+}
+
+.ledger_orders__div:hover {
+    box-shadow: 0 0 10px 1px rgba(134, 129, 129, 0.237);
+}
+
+.ledger_orders_head {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.ledger_orders-number__closed {
+    color: rgb(231, 131, 8);
+}
+
+.ledger_orders-number__open {
+    color: rgb(57, 177, 85);
+}
+
+.ledger_orders-number__all {
+    background: linear-gradient(to bottom, rgb(231, 131, 8), rgb(57, 177, 85));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ledger_orders-number__all,
+.ledger_orders-number__closed,
+.ledger_orders-number__open {
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.ledger_orders-total {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.ledger_traffic {
+    margin-top: 5vh;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ledger_traffic span {
+    font-weight: bold;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: .9;
+}
+
+.ledger_popular-items-list {
+    margin-top: 50px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+.ledger_pop-list-header {
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 15px;
+
+}
+
+.ledger_popular-item {
+    margin: 5px 20px;
+}
+.ledger_popular-item span {
+    opacity: .7;
+}

@@ -1,0 +1,79 @@
+.bill {
+    width: 30vw;
+    padding: 25px;
+    border-left: 1px solid rgba(132, 132, 132, 0.204);
+    margin-left: 25px;
+    background-color: rgba(128, 201, 158, 0.053);
+    font-family: monReg;
+    height: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    font-size: 14px;
+    position: relative;
+}
+
+.bill_header {
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.bill_name {
+    font-family: monBold;
+    font-size: 20px;
+}
+
+
+.bill_subtotal {
+    font-family: monBold;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 5px;
+
+}
+
+.bill_actions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.bill_action-btn {
+    font-size: 20px;
+    border: none;
+    background-color: rgb(8, 231, 60);
+    color: white;
+    padding: 15px;
+    font-family: monBold;
+    border-radius:25px;
+    cursor: pointer;
+    margin: 0 15%;
+
+}
+
+.bill_action-btn:hover {
+    background-color: rgb(11, 187, 52);
+
+}
+
+.bab_reopen {
+    background-color: rgb(244, 164, 16);
+
+}
+
+.bab_reopen:hover {
+    background-color: rgb(220, 143, 0);
+
+}
+
+.bill_cart-items {
+    margin-left: 15px;
+    margin-top: 5px;
+    height: 110px;
+    overflow-y: scroll;
+}
+
+.bill_cart-item {
+    padding: 1px 0;
+    font-size: 14px;
+}

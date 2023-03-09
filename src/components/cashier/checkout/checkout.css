@@ -1,0 +1,139 @@
+.checkout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    font-family: monReg;
+    align-items: center;
+}
+.checkout_cover{
+    position: fixed;
+    z-index: -1;
+    right: 8%;
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout-header {
+    color: #f07f16;
+    font-family: monbold;
+
+}
+
+.checkout-price-span {
+    font-weight: bold;
+}
+
+.checkout_prices-p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkout_prices {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.checkout-totalprice {
+    font-weight: bold;
+    font-family: monExBold;
+    font-size: 30px;
+}
+
+.checkout-btn {
+    background-color: transparent;
+    font-size: 20px;
+    border: 2px solid #f07f16;
+    color: #f07f16;
+    padding: 15px 45px;
+    font-weight: bold;
+    border-radius: 35px 0 35px 25px;
+    text-align: center;
+    margin-top: 25%;
+    width: 100%;
+}
+
+.checkout-btn:hover {
+    background-color: #f07f16;
+    color: white;
+    cursor: pointer;
+}
+
+.checkout_cart-header{
+    margin:  20px 0 20px 40px;
+    font-weight: bold;
+    font-size: 30px;
+    color: #f07f16;
+}
+
+.checkout_cart-view {
+    height: calc(100% - 68px);
+    overflow-y: scroll;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 450px;
+    box-sizing: border-box;
+    border: 1px solid rgba(195, 195, 195, 0.293);
+}
+
+.checkout_cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 25px 8%;
+    border-top: 1px solid rgba(0, 0, 0, 0.161);
+
+}
+
+.checkout_cart_item-img {
+    width: 70px;
+}
+
+.checkout_cart_item-name {
+    font-weight: bold;
+}
+
+.checkout_cart_item-qty {
+    opacity: .7;
+}
+
+.checkout_cart_item-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.checkout_cart_item-btns {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    gap: 6px;
+    z-index: 50;
+}
+
+.checkout_cart_item-btn:hover {
+    color: #f07f16;
+    cursor: pointer;
+}
+
+
+.checkout_cutomer-name-input{
+
+    padding: 5px 0;
+    font-size: 16px;
+    border: none;
+    font-weight: bold;
+}
+.checkout_cutomer-name-input:focus{
+    outline: none;
+}

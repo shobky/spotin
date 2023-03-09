@@ -1,0 +1,22 @@
+.cashier {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+
+
+}
+
+.cashier_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+.Items-component {
+    width: 75vw;
+    height: 80vh;
+}
+
+.cashier_spinner {
+    margin-top: 35vh;
+}
