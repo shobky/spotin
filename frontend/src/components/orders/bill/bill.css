@@ -27,6 +27,7 @@
     font-family: monBold;
     font-size: 30px;
     text-align: center;
+    margin-bottom: 5px;
 
 }
 
@@ -41,12 +42,12 @@
     font-size: 20px;
     border: none;
     background-color: rgb(8, 231, 60);
-
     color: white;
     padding: 15px;
     font-family: monBold;
-    border-radius: 0 25px 25px 25px;
+    border-radius:25px;
     cursor: pointer;
+    margin: 0 15%;
 
 }
 

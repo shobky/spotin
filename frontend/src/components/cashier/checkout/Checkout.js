@@ -52,7 +52,7 @@ const Checkout = ({ handleCheckoutScreen }) => {
         const newCartItems = mergedCart.map(({ image, ...rest }) => rest)
 
         const res = appendOrder
-            ? await axios.put(`http://localhost:5000/api/orders/update`, {
+            ? await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/orders/update`, {
                 id: appendOrder._id,
                 cart: newCartItems,
                 cartTotal: appendOrder.cartTotal + cartTotal,
@@ -61,7 +61,7 @@ const Checkout = ({ handleCheckoutScreen }) => {
                 subTotal: appendOrder.subTotal + subTotal,
                 status: appendOrder.status
             })
-            : await axios.post('http://localhost:5000/api/orders/add', {
+            : await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/orders/add`, {
                 customerName,
                 cart: newCartItems,
                 cartTotal: cartTotal,

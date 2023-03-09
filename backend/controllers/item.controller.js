@@ -37,7 +37,7 @@ const addItem = async (req, res) => {
 // update
 
 const updateItem = async (req, res) => {
-    const { name, image, price, category,vital, id } = req.body
+    const { name, image, price, category, vital, id } = req.body
 
     try {
         await Item.findById(id, (error, foundItem) => {
@@ -60,10 +60,10 @@ const updateItem = async (req, res) => {
 // delete
 
 const deleteItem = async (req, res) => {
-    const { id } = req.body
+    const { _id } = req.params
 
     try {
-        await Item.findOneAndRemove(id).exec()
+        await Item.findOneAndRemove(_id).exec()
         res.status(200).json("item removed")
     }
     catch (err) {
@@ -72,11 +72,33 @@ const deleteItem = async (req, res) => {
 
 }
 
+// upadte Price 
+
+const updatePrice = async (req, res) => {
+    const { _id, newPrice } = req.body
+
+    try {
+        await Item.findById(_id, (error, foundItem) => {
+            foundItem.price = newPrice;
+            foundItem.save()
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
+    return res.status(201).json('updated')
+
+
+}
+
 
 exports.getItems = getItems
 exports.addItem = addItem
 exports.updateItem = updateItem
 exports.deleteItem = deleteItem
+exports.updatePrice = updatePrice
+
+
 
 
 

@@ -59,8 +59,17 @@ export const OrderProvider = ({ children }) => {
     // getting all orders
 
     const getOrders = async () => {
+        const today = new Date()
+        const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59);
+        const startOfDayISO = startOfDay.toISOString();
+        const endOfDayISO = endOfDay.toISOString();
+        const start = startOfDayISO;
+        const end = endOfDayISO;
+
+
         const res = await axios
-            .get("http://localhost:5000/api/orders/get", {
+            .get(`${process.env.REACT_APP_SERVER_URL}/api/orders/getAll/${start}/${end}`, {
                 withCredentials: true,
             })
             .catch((err) => console.log(err));
@@ -79,11 +88,10 @@ export const OrderProvider = ({ children }) => {
 
     const getOrderByID = async (id) => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/orders/get/${id}`, {
+            const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/orders/get/${id}`, {
                 withCredentials: true,
             });
             const order = res.data.order
-
             if (order) {
                 // If the order is found, update its state in the client
                 setOrders([...orders.filter((o) => o._id !== id), order]);
@@ -107,7 +115,7 @@ export const OrderProvider = ({ children }) => {
     // calculates time spent from the data object provided by mongoDB createdAt
 
     useEffect(() => {
-        if (!selectedOrder) {
+        if (!selectedOrder ) {
             return
         }
 
@@ -125,7 +133,7 @@ export const OrderProvider = ({ children }) => {
 
         handleTimeSpent()
     }, [selectedOrder])
-    
+
 
     const onFilterOrders = (filter) => {
         setFilterQ(filter)

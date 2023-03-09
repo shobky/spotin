@@ -2,10 +2,11 @@
     font-family: monReg;
     display: flex;
     justify-content: center;
-    gap: 2.5vw;
+    gap: .6vw;
     align-items: center;
     border-bottom: 1px solid rgba(179, 179, 179, 0.288);
     padding: 10px 10px;
+    box-sizing: border-box;
 }
 
 .orders_header-btn {

@@ -9,16 +9,19 @@ const Bill = () => {
     const { selectedOrder,
         timeSpent,
         timeSpentInMs,
-        reLoadOrders } = useOrder()
+        getOrderByID } = useOrder()
 
     const [sending, setSending] = useState(false)
+    const [changed, setChanged] = useState(false)
+
 
     const date = new Date(selectedOrder?.createdAt);
 
     const [currentOrder, setCurrentOrder] = useState(selectedOrder ? selectedOrder : "")
 
+
     useEffect(() => {
-        if (!selectedOrder && !timeSpentInMs && selectedOrder?.status !== 'open') {
+        if (!selectedOrder && !timeSpentInMs) {
             return
         }
         const current = { ...selectedOrder }
@@ -32,8 +35,17 @@ const Bill = () => {
         }
     }, [selectedOrder, timeSpentInMs])
 
+    useEffect(() => {
+        if (changed) {
+            setTimeout(async () => {
+                await getOrderByID(currentOrder._id)
+                setChanged(!changed)
+            }, 500);
+        }
+    }, [changed])
+
     const sendRequest = async (wtd) => {
-        const res = await axios.put('http://localhost:5000/api/orders/update', {
+        const res = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/orders/update`, {
             ticketsPrice: currentOrder.ticketsPrice,
             subTotal: currentOrder.subTotal,
             status: wtd,
@@ -50,26 +62,28 @@ const Bill = () => {
         return data
     }
 
-    const onCloseOrder = (e) => {
+    const onCloseOrder = async (e) => {
+
         e.preventDefault()
         setSending(true)
-        sendRequest('closed').then(() => {
-            reLoadOrders()
+        await sendRequest('closed').then(() => {
             setSending(false)
+            setChanged(!changed)
         }).catch((err) => {
             setSending(false)
         })
+        setChanged(!changed)
     }
 
-    const onOpenOrder = (e) => {
+    const onOpenOrder = async (e) => {
         e.preventDefault()
         setSending(true)
-        sendRequest('open').then(() => {
-            reLoadOrders()
+        await sendRequest('open').then(() => {
             setSending(false)
         }).catch((err) => {
             setSending(false)
         })
+        setChanged(!changed)
     }
 
     return (

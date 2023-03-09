@@ -19,7 +19,7 @@ const Login = () => {
     };
 
     const sendRequest = async () => {
-        const res = await axios.post('http://localhost:5000/api/users/login', {
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/login`, {
             email: fields.email,
             password: fields.password,
         }).catch(err => setError(err.response.data))

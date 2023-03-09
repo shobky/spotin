@@ -29,8 +29,16 @@ const addOrder = async (req, res) => {
 // get all orders
 
 const getOrders = async (req, res, next) => {
+
+    const { start, end } = req.params
     try {
-        const orders = await Order.find()
+        const orders = await Order.find({
+            $or: [
+                { status: 'open' },
+                { createdAt: { $gte: start, $lte: end } }
+            ]
+        });
+        
         res.status(200).json({ orders })
 
     } catch (err) {
@@ -42,7 +50,6 @@ const getOrders = async (req, res, next) => {
 
 const getOrderById = async (req, res, next) => {
 
-    console.log(req.params.id)
     Order.findById(req.params.id)
         .then((order) => {
             res.status(200).json({

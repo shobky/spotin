@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import './addItem.css'
+import { MdOutlineArrowBack } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const AddItem = () => {
     const [item, setItem] = useState({
@@ -10,6 +12,7 @@ const AddItem = () => {
         category: '',
         vital: '',
     })
+    const [img, setImg] = useState(null)
 
     // handeling changes of every field exept image
 
@@ -22,6 +25,7 @@ const AddItem = () => {
 
     const handleImgChange = (e) => {
         const file = e.target.files[0];
+        setImg(URL.createObjectURL(file))
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = (e) => {
@@ -48,7 +52,8 @@ const AddItem = () => {
 
     const sendRequest = async () => {
 
-        const res = await axios.post('http://localhost:5000/api/items/add', {
+
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/items/add`, {
             name: item.name,
             image: item.image,
             price: item.price,
@@ -65,7 +70,7 @@ const AddItem = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (item.image === '') {
-            alert('please add image again')
+            alert('please add an image first')
             return
         }
         sendRequest().then(() => {
@@ -75,14 +80,26 @@ const AddItem = () => {
 
 
     return (
-        <div>
+        <div className='add-item_contaienr'>
+            <Link className='add-item-backlink' to={'/admin/dashboard'}><MdOutlineArrowBack /></Link>
+            {
+                img ?
+                    <div className='add-item-img-area'>
+                        <img className='add-item_Img' src={img && img} alt={item?.name} />
+                        <input className='add-item-img-area_input' required name='image' onChange={(e) => handleImgChange(e)} type={'file'} placeholder='image' />
+                    </div>
+                    : <div className='add-item-img-area'>
+                        <p>Add a picture</p>
+                        <input className='add-item-img-area_input' required name='image' onChange={(e) => handleImgChange(e)} type={'file'} placeholder='image' />
+
+                    </div>
+            }
             <form onSubmit={handleSubmit} className='add-item'>
                 <input required value={item.name} name='name' onChange={(e) => handleChange(e)} type={'text'} placeholder='name' />
-                <input required name='image' onChange={(e) => handleImgChange(e)} type={'file'} placeholder='image' />
                 <input required value={item.price} name='price' onChange={(e) => handleChange(e)} type={'number'} placeholder='price' />
                 <input required value={item.category} name='category' onChange={(e) => handleChange(e)} type={'text'} placeholder='category' />
                 <input required value={item.vital} name='vital' onChange={(e) => handleChange(e)} type={'number'} placeholder='vital' />
-                <button type='submit'>Submit</button>
+                <button className='add-item_submit-btn' type='submit'>Submit</button>
             </form>
         </div>
     )

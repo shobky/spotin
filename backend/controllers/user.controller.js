@@ -117,27 +117,29 @@ const getUser = async (req, res, next) => {
   return res.status(200).json({ user });
 };
 
-// const logout = (req, res, next) => {
-//   const cookies = req.headers.cookie;
-//   const prevToken = cookies.split("=")[1];
-//   if (!prevToken) {
-//     return res.status(400).json({ message: "Couldn't find token" });
-//   }
-//   jwt.verify(String(prevToken), 'secret123', (err, user) => {
-//     if (err) {
-//       console.log(err);
-//       return res.status(403).json({ message: "Authentication failed" });
-//     }
-//     res.clearCookie(`${user.id}`);
-//     req.cookies[`${user.id}`] = "";
-//     return res.status(200).json({ message: "Successfully Logged Out" });
-//   });
-// };
+const logout = (req, res, next) => {
+  const cookies = req.headers.cookie;
+  const prevToken = cookies?.split('<<%.P=').pop().split('DllpK')[0];
+  if (!prevToken) {
+    return res.status(400).json({ message: "Couldn't find token" });
+  }
+  jwt.verify(String(prevToken), 'secret123', (err, user) => {
+    if (err) {
+      console.log(err);
+      return res.status(403).json({ message: "Authentication failed" });
+    }
+    res.clearCookie(`${user.id}<<%.P`);
+    req.cookies[`${user.id}<<%.P`] = "";
+    return res.status(200).json({ message: "Successfully Logged Out" });
+  });
+};
 
 // exports.logout = logout;
 exports.signup = signup;
 exports.login = login;
 exports.verifyToken = verifyToken;
 exports.getUser = getUser;
+exports.logout = logout;
+
 
 

@@ -23,7 +23,7 @@ const Nav = ({ handleCheckoutScreen }) => {
 
     return (
         <nav className='cashier_nav'>
-            <Logo />
+            <h1 style={{fontFamily:"monExBold"}}>Shop</h1>
             <Link className='cashier_nav-link' to={'/admin/dashboard'}>
                 <MdOutlineSpaceDashboard />
             </Link>

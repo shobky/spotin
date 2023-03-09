@@ -9,7 +9,9 @@ import Login from './pages/auth/Login'
 import Signup from './pages/auth/Signup'
 import Cashier from './pages/cashier/Cashier'
 import Dashboard from './pages/dashboard/Dashboard'
+import Ledger from './pages/ledger/Ledger'
 import Orders from './pages/orders/Orders'
+import ProductList from './pages/updateItem/ProductList'
 
 const App = () => {
   return (
@@ -25,7 +27,7 @@ const App = () => {
             <Dashboard />
           </AuthProvider>
         } />
-           <Route path='/admin/cashier' element={
+        <Route path='/admin/cashier' element={
           <ItemsProvider>
             <OrderProvider>
               <CartProvider>
@@ -36,13 +38,25 @@ const App = () => {
         } />
 
         <Route path='/admin/orders' element={
-           <ItemsProvider>
-           <OrderProvider>
-             <CartProvider>
-               <Orders />
-             </CartProvider>
-           </OrderProvider>
-         </ItemsProvider>
+          <ItemsProvider>
+            <OrderProvider>
+              <CartProvider>
+                <Orders />
+              </CartProvider>
+            </OrderProvider>
+          </ItemsProvider>
+        } />
+
+        <Route path='/admin/ledger' element={
+          <OrderProvider>
+            <Ledger />
+          </OrderProvider>
+        } />
+
+        <Route path='/admin/update' element={
+          <ItemsProvider>
+            <ProductList />
+          </ItemsProvider>
         } />
       </Routes>
 
