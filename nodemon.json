@@ -1,0 +1,8 @@
+{
+    "name": "nodemon",
+    "homepage": "http://nodemon.io",
+    "nodemonConfig": {
+      "ignore": ["**/test/**", "**/docs/**"],
+      "delay": 2500
+    }
+}
