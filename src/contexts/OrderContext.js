@@ -36,7 +36,7 @@ export const OrderProvider = ({ children }) => {
         let total = 0
         let tktsSold = 0
         if (filterQ) {
-            return orders.filter(order => order.status === filterQ)
+            return orders?.filter(order => order.status === filterQ)
                 .forEach(order => {
                     total += order.subTotal
                     tktsSold += order.tickets
@@ -44,7 +44,7 @@ export const OrderProvider = ({ children }) => {
                     setTotalTicketsSold(tktsSold)
                 });
         }
-        orders.forEach(order => {
+        orders?.forEach(order => {
             total += order.subTotal
             tktsSold += order.tickets
 
